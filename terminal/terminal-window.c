@@ -1878,7 +1878,7 @@ terminal_window_notebook_button_press_event (GtkNotebook *notebook,
   else if (event->type == GDK_BUTTON_PRESS && event->button <= 3)
     {
       /* select the page the user clicked on */
-      while ((page = gtk_notebook_get_nth_page (notebook, page_num)) != NULL)
+      if ((page = gtk_notebook_get_nth_page (notebook, page_num)) != NULL)
         {
           label = gtk_notebook_get_tab_label (notebook, page);
           if (terminal_window_notebook_event_in_allocation (x, y, label))
